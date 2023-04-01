@@ -19,12 +19,7 @@ class loader {
         }
 
         this.cacheClient = new InternalCache();
-         
-        new Promise<void>((resolve) => {
-            resolve();
-        }).then(() => {
-            logger.info("Using memory cache (default).");
-        });
+        logger.info("Using memory cache (default).");
     }
 
     public static getCache():AbstractCache {
