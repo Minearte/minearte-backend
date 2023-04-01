@@ -1,5 +1,4 @@
 import AbstractCache from "./AbstractCache.ts";
-import logger from "../utils/logger.ts";
 
 class InternalCache extends AbstractCache {
   cache: Map<string, string> = new Map<string, string>();
