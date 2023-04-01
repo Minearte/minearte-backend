@@ -9,6 +9,4 @@ export default abstract class AbstractCache {
     abstract values():string[];
     abstract entries():[string, string][];
     abstract forEach(callbackfn:(value:string, key:string, map:Map<string, string>) => void, thisArg?:string):void;
-    abstract [Symbol.iterator]():IterableIterator<[string, string]>;
-    abstract [Symbol.toStringTag]:string;
 }
