@@ -9,7 +9,6 @@ const port = Deno.env.get("PORT") || 3000;
 export default class Server {
     public static start():void {
         app.listen(port, () => {
-            logger.clear();
             logger.info(`Server is running on port ${port}`);
         });
 
