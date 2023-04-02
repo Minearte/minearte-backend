@@ -1,0 +1,8 @@
+{
+	"recommendations": [
+		"denoland.vscode-deno",
+        "steoates.autoimport",
+        "usernamehw.errorlens",
+        "dbaeumer.vscode-eslint",
+	]
+}
