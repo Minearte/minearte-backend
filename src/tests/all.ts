@@ -23,6 +23,6 @@ for (const fileName of fileNames) {
   const p = Deno.run({
     cmd: ["deno", "test", "-A", `src/tests/${fileName}`],
   });
-  p.status();
+  await p.status();
 }
 console.log(fileNames);
