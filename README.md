@@ -33,7 +33,7 @@ REDIS_PASSWORD="password"
 # This is the Redis database. Only used if CACHE=REDIS.
 REDIS_DATABASE=0
 # This is the Redis key prefix. Only used if CACHE=REDIS.
-REDIS_KEY_PREFIX="minearte-cache":
+REDIS_KEY_PREFIX="minearte-cache:"
 # Tebex
 # Here you have to put your tebex secret
 TEBEX_SECRET="YOUR_TEBEX_SECRET"
