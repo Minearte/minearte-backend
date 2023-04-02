@@ -31,3 +31,8 @@ export interface CategoryClass {
     id:   number;
     name: string;
 }
+
+export interface payment {
+    url: string,
+    expires: string
+}
