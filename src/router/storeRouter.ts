@@ -8,4 +8,13 @@ router.get('/categories', async function(_req:Request, res:Response) {
     res.json(await CachedRequests.getCategories())
 })
 
+router.get('/category/:id', async function(req:Request, res:Response) {
+    res.json(await CachedRequests.getCategory(parseInt(req.params.id)))
+})
+
+// router.get('/packages', async function(_req:Request, res:Response) {
+//     res.json(await CachedRequests.getPackages())
+// })
+
+
 export default router;

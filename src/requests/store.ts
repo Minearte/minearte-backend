@@ -27,3 +27,14 @@ export async function getCategory(id: number) {
     const categories = await getCategories()
     return categories.find((category) => category.id === id)
 }
+
+export async function getPackages():Promise<packages[]> {
+    const packages:packages[] = []
+    await tebex.get("packages?verbose=true").then((res) => {
+        res.data.forEach((p: packages) => {
+            packages.push(p)
+        })
+    })
+
+    return packages
+}

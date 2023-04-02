@@ -1,6 +1,6 @@
 import { tebex } from '../requests/axios.ts'
 import logger from "../utils/logger.ts";
-import {getCategories, getCategory} from "../requests/store.ts";
+import {getCategories, getCategory, getPackages} from "../requests/store.ts";
 logger.info("Running tebex tests...");
 
 await tebex.get("packages?verbose=true").then((_res) => {
@@ -12,13 +12,15 @@ await tebex.get("packages?verbose=true").then((_res) => {
 
 const categories = await getCategories()
 
-console.log(categories)
-
 logger.info("tebex test 2 passed");
 
-console.log(await getCategory(categories[0].id))
+await getCategory(categories[0].id)
 
 logger.info("tebex test 3 passed");
+
+await getPackages()
+
+logger.info("tebex test 4 passed");
 
 logger.info("Finished tebex tests.");
 
