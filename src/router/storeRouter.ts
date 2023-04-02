@@ -12,9 +12,12 @@ router.get('/category/:id', async function(req:Request, res:Response) {
     res.json(await CachedRequests.getCategory(parseInt(req.params.id)))
 })
 
-// router.get('/packages', async function(_req:Request, res:Response) {
-//     res.json(await CachedRequests.getPackages())
-// })
+router.get('/packages', async function(_req:Request, res:Response) {
+    res.json(await CachedRequests.getPackages())
+})
 
+router.get('/package/:id', async function(req:Request, res:Response) {
+    res.json(await CachedRequests.getPackage(parseInt(req.params.id)))
+})
 
 export default router;
