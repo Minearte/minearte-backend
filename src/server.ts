@@ -2,6 +2,7 @@ import express from "npm:express@4.18.2";
 import logger from "./utils/logger.ts";
 import "https://deno.land/x/dotenv@v3.2.2/load.ts";
 import routeLogger from "./utils/routeLogger.ts";
+import storeRouter from "./router/storeRouter.ts";
 
 const app:express = express();
 const port = Deno.env.get("PORT") || 3000;
@@ -13,5 +14,6 @@ export default class Server {
         });
 
         app.use(routeLogger);
+        app.use("/store", storeRouter)
     }
 }
