@@ -30,9 +30,11 @@ class loader {
     public static async schelude():Promise<void> {
         await setInterval(async () => {
             const categories = await storeRequest.getCategories();
+            const packages = await storeRequest.getPackages();
+            await this.cacheClient.set("packages", JSON.stringify(packages));
             await this.cacheClient.set("categories", JSON.stringify(categories));
             logger.info("Cache refreshed!");
-        }, parseInt(Deno.env.get("CACHE_REFRESH") || "60000" ));
+        }, parseInt(Deno.env.get("CACHE_REFRESH_INTERVAL") || "60000" ));
     }
 
     public static getCache():AbstractCache {
