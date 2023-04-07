@@ -3,6 +3,12 @@ import logger from './logger.ts';
 
 const router = Router();
 
+router.get('/', function(_req:Request, res:Response) {
+  res.json({
+      status: "Online"
+  })
+})
+
 router.use(async function(req:Request, res:Response, next:NextFunction) {
     const current = new Date();
     res.on('finish', await function() {
