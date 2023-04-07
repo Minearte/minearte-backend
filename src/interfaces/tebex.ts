@@ -36,3 +36,71 @@ export interface payment {
     url: string,
     expires: string
 }
+
+export interface sale {
+    player: string,
+    package: string
+}
+
+export interface completeSale {
+    id:           number;
+    amount:       string;
+    date:         Date;
+    gateway:      Gateway;
+    status:       Status;
+    currency:     Currency;
+    email:        string;
+    player:       Player;
+    packages:     Package[];
+    notes:        Note[];
+    creator_code: null;
+}
+
+export interface Currency {
+    iso_4217: ISO4217;
+    symbol:   Symbol;
+}
+
+export enum ISO4217 {
+    Usd = "USD",
+}
+
+export enum Symbol {
+    Empty = "$",
+}
+
+export interface Gateway {
+    id:   number;
+    name: GatewayName;
+}
+
+export enum GatewayName {
+    TebexCheckout = "Tebex Checkout",
+}
+
+export interface Note {
+    created_at: Date;
+    note:       string;
+}
+
+export interface Package {
+    quantity: number;
+    id:       number;
+    name:     PackageName;
+}
+
+export enum PackageName {
+    RangoARTE30D = "Rango ARTE (30d)",
+    RangoARTE60D = "Rango ARTE (60d)",
+    RangoVIP60D = "Rango VIP (60d)",
+}
+
+export interface Player {
+    id:   number;
+    name: string;
+    uuid: string;
+}
+
+export enum Status {
+    Complete = "Complete",
+}

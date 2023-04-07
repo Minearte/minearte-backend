@@ -1,3 +1,4 @@
+import { sale, completeSale } from '../interfaces/tebex.ts';
 import { packages } from '../interfaces/tebex.ts';
 import { tebex } from './axios.ts';
 import categories from "../interfaces/category.ts";
@@ -37,4 +38,21 @@ export async function getPackages():Promise<packages[]> {
     })
 
     return packages
+}
+
+export async function getRecentSales():Promise<sale[]> {
+    const sales:sale[] = []
+    let counter = 0
+    await tebex.get("payments?limit=10").then((res) => {
+        res.data.forEach((sale: completeSale) => {
+            if (counter >= 5) return;
+            sales.push({
+                "player": sale.player.name,
+                "package": sale.packages[0].name,
+            })
+            counter++
+        })
+    })
+
+    return sales
 }

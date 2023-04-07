@@ -21,6 +21,10 @@ router.get('/package/:id', async function(req:Request, res:Response) {
     res.json(await CachedRequests.getPackage(parseInt(req.params.id)))
 })
 
+router.get('/sales', async function(_req:Request, res:Response) {
+    res.json(await CachedRequests.getRecentSales())
+})
+
 router.post('/checkout', async function(req:Request, res:Response) {
     if (!req.body.username || !req.body.packageID) {
         res.status(400).json({

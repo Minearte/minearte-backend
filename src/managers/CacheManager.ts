@@ -31,8 +31,10 @@ class loader {
         await setInterval(async () => {
             const categories = await storeRequest.getCategories();
             const packages = await storeRequest.getPackages();
+            const sales = await storeRequest.getRecentSales();
             await this.cacheClient.set("packages", JSON.stringify(packages));
             await this.cacheClient.set("categories", JSON.stringify(categories));
+            await this.cacheClient.set("sales", JSON.stringify(sales));
             logger.info("Cache refreshed!");
         }, parseInt(Deno.env.get("CACHE_REFRESH_INTERVAL") || "60000" ));
     }

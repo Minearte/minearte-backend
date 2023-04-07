@@ -47,10 +47,27 @@ export async function getPackage(id: number) {
     return p.find((p: packages) => p.id === id)
 }
 
+export async function getRecentSales() {
+    const cache:AbstractCache = CacheManager.getCache()
+    const exists = await cache.has("sales");
+
+    if (exists) {
+        const sales = await cache.get("sales");
+        return JSON.parse(sales);
+    }
+
+    const tebex = await TebexRequests.getRecentSales();
+
+    await cache.set("sales", JSON.stringify(tebex));
+
+    return tebex;
+
+}
 
 export default {
     getCategories,
     getCategory,
     getPackages,
-    getPackage
+    getPackage,
+    getRecentSales
 }
