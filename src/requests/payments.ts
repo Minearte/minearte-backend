@@ -93,8 +93,8 @@ export default async function name(username:string, packageID: number):Promise<s
     if(username === "" || packageID === 0) throw new Error("Invalid username or packageID")
 
     const payment = await generatePayment(username, packageID)
-    const location = await getCheckoutLocation(payment.url)
-    // const cookies = await getCheckoutCookies(location)
-    // const checkout = await generateTebexCheckout(cookies)
-    return location;
+    // const location = await getCheckoutLocation(payment.url)
+    // // const cookies = await getCheckoutCookies(location)
+    // // const checkout = await generateTebexCheckout(cookies)
+    return payment.url;
 }
