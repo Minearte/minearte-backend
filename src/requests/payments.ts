@@ -32,7 +32,7 @@ export async function getCheckoutLocation(paymentLink: string):Promise<string> {
     }).then((res) => {
         newLink = res.headers.get("location") as string
     }).catch((err) => {
-        throw new Error(err)
+        console.log(err)
     })
 
     return newLink
@@ -46,7 +46,7 @@ export async function getCheckoutCookies(paymentLocationLink: string):Promise<st
     }).then((res) => {
         cookies = res.headers.get("set-cookie") as unknown as string
     }).catch((err) => {
-        throw new Error(err)
+        console.log(err)
     })
 
     await axiod.get(Deno.env.get("TEBEX_STORE_URL")+"/checkout/basket", {
@@ -56,7 +56,7 @@ export async function getCheckoutCookies(paymentLocationLink: string):Promise<st
         },
         withCredentials: true
     }).catch((err) => {
-        throw new Error(err)
+        console.log(err)
     })
 
     return cookies
@@ -76,7 +76,7 @@ export async function generateTebexCheckout(cookies: string):Promise<string> {
     }).then((res) => {  
         checkout = res.headers.get("location") as string
     }).catch((err) => {
-        throw new Error(err)
+        console.log(err)
     })
 
     return checkout           
