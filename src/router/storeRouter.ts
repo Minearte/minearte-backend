@@ -37,10 +37,11 @@ router.post('/checkout', async function(req:Request, res:Response) {
         res.json({
             url: await payments(req.body.username, parseInt(req.body.packageID))
         })
-    } catch (_e) {
+    } catch (e) {
         res.status(500).json({
             error: "Error while generating payment, please try again later"
         })
+        console.log(e);
         return;
     }
 })
