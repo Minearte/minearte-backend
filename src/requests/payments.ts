@@ -94,7 +94,7 @@ export default async function name(username:string, packageID: number):Promise<s
 
     const payment = await generatePayment(username, packageID)
     const location = await getCheckoutLocation(payment.url)
-    const cookies = await getCheckoutCookies(location)
-    const checkout = await generateTebexCheckout(cookies)
-    return checkout
+    // const cookies = await getCheckoutCookies(location)
+    // const checkout = await generateTebexCheckout(cookies)
+    return location;
 }
