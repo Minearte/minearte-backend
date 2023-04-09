@@ -19,7 +19,7 @@ export async function generatePayment(username:string, packageID: number):Promis
         data.url = res.data.url
         data.expires = res.data.expires
     }).catch((err) => {
-        throw new Error(err)
+        console.log(err)
     })
 
     return data
