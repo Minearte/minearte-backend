@@ -11,10 +11,6 @@ export async function generatePayment(username:string, packageID: number):Promis
     await tebex.post("checkout", {
         username: username,
         package_id: packageID
-    }, {
-        headers: {
-            "Content-Type": "application/json"
-        }
     }).then ((res) => {
         data.url = res.data.url
         data.expires = res.data.expires

@@ -4,6 +4,6 @@
     "test:tebex": "deno test --allow-read --allow-env --allow-net --unstable src/tests/tebex.tests.ts",
     "test": "deno run --allow-run --allow-read --allow-env --allow-net --unstable src/tests/all.ts",
     "config": "deno run --allow-read --allow-write --allow-env --allow-net -A src/cli/configure.ts",
-    "start": "deno run --allow-read --allow-env --allow-net -A src/main.ts"
+    "start": "deno run --allow-read --allow-env --allow-net --unstable -A src/main.ts"
   }
 }

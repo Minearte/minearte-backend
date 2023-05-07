@@ -19,6 +19,8 @@ export async function getCategories():Promise<categories[]> {
                 packages: [category.id]
             })
         })
+    }).catch((e) => {
+        console.log(e);
     })
 
     return Array.from(categoriesMap.values())
